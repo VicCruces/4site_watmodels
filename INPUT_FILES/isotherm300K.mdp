@@ -1,0 +1,63 @@
+;	                     :-) GROMACS - gmx grompp, 2020.1 (-:
+; e.g.: -DPOSRES -DFLEXIBLE (note these variable names are case sensitive)
+integrator               = md
+tinit                    = 0
+dt                       = 0.002
+nsteps                   = 15500000
+comm-mode                = Linear
+nstcomm                  = 100
+
+nstlog                   = 500000
+nstcalcenergy            = 2500
+nstenergy                = 2500
+nstxout-compressed       = 10000
+compressed-x-precision   = 1000
+
+cutoff-scheme            = verlet
+nstlist                  = 100
+pbc                      = xyz
+periodic-molecules       = no
+verlet-buffer-tolerance  = 0.005
+rlist                    = 1.2
+
+coulombtype              = PME
+coulomb-modifier         = none
+rcoulomb-switch          = 0
+rcoulomb                 = 1.2
+vdw-type                 = PME
+vdw-modifier             = none
+rvdw-switch              = 0
+rvdw                     = 1.2
+DispCorr                 = No
+fourierspacing           = 0.10
+pme-order                = 4
+ewald-rtol               = 1e-05
+ewald-rtol-lj            = 0.001
+lj-pme-comb-rule         = Geometric
+ewald-geometry           = 3d
+epsilon-surface          = 0
+implicit-solvent         = no
+
+tcoupl                   = nose-hoover
+nsttcouple               = 1
+nh-chain-length          = 1
+print-nose-hoover-chain-variables = no
+tc-grps                  = System
+tau-t                    = 1.0
+ref-t                    = 300.0
+pcoupl                   = Parrinello-Rahman
+pcoupltype               = isotropic
+nstpcouple               = 75
+tau-p                    = 5.0
+compressibility          = 5E-5
+ref-p                    = YYYY.0
+refcoord-scaling         = No
+
+gen-vel                  = yes
+gen-temp                 = 300.0
+gen-seed                 = -1
+
+constraint-algorithm     = shake
+continuation             = no
+Shake-SOR                = no
+shake-tol                = 0.0002
